@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Spinzone - Share Your World</title>
+  <title>Spinzone</title>
   <link rel="icon" type="image/x-icon" href="/Spinzone/file/logo1.jpg">
   <link rel="stylesheet" href="/Spinzone/file/Style.css">
 </head>
@@ -12,20 +12,16 @@
 
 <header id="main-header" class="shell-nav">
   <div class="shell-nav__logo">
-    <img src="/Spinzone/file/logo1.jpg" alt="Spinzone Logo" width="50" height="50">
+    <img src="/Spinzone/file/logo1.jpg" alt="Spinzone Logo">
   </div>
   <nav class="shell-nav__link-list">
     <button>Home</button>
     <button>Explore</button>
-    <button>Trending</button>
-    <button>Photos</button>
-    <button>Videos</button>
-    <button>Live Streams</button>
-    <button>Music</button>
-    <button>Stories</button>
-    <button>Profile</button>
     <button>Notifications</button>
+    <button>Messages</button>
+    <button>Profile</button>
     <button>Settings</button>
+    <button>Logout</button>
   </nav>
   <div class="shell-nav__search-container">
     <form id="search-form" method="get" action="#">
@@ -36,80 +32,71 @@
 </header>
 
 <main>
-  <!-- Welcome Section -->
-  <section id="welcome">
-    <h2>Welcome to Spinzone</h2>
-    <p>Your one-stop platform to share videos, photos, and stories with the world!</p>
-  </section>
-
-  <!-- Recommendations Section -->
-  <section id="recommendations">
-    <h2>Recommended for You</h2>
-    <div>
-      <a href="/Spinzone/file/no_video.png">
-        <img src="/Spinzone/file/no_miniatures.png" alt="No Video Available">
-      </a>
-      <h3>Outro Video (Impostor Instrumental)</h3>
-      <p>Views: 15M #Intro #Outro #Impostor #AmongUs</p>
+  <section id="user-profile">
+    <div class="profile-header">
+      <img src="/Spinzone/file/profile_picture.jpg" alt="User Profile Picture" class="profile-picture">
+      <div class="profile-info">
+        <h1>@Username</h1>
+        <p>Bio: Passionate about creating content and connecting with others!</p>
+        <button>Follow</button>
+        <button>Message</button>
+      </div>
     </div>
   </section>
 
-  <!-- Trending Section -->
-  <section id="trending">
-    <h2>Trending Now</h2>
-    <p>Check out the latest trends in videos, photos, and music!</p>
-  </section>
-
-  <!-- Photo Sharing Section -->
-  <section id="photos">
-    <h2>Photos</h2>
-    <div>
-      <p>Share your favorite moments.</p>
-      <button>Upload Photo</button>
+  <section id="explore">
+    <h2>Explore</h2>
+    <div class="grid">
+      <article>
+        <img src="/Spinzone/file/sample_video_thumbnail.jpg" alt="Video Thumbnail">
+        <h3>Creative Video Title</h3>
+        <p>Views: 1.2M | Likes: 120K</p>
+        <button>Watch</button>
+      </article>
+      <article>
+        <img src="/Spinzone/file/sample_photo.jpg" alt="Photo">
+        <h3>Caption of the photo</h3>
+        <p>Likes: 89K</p>
+        <button>Like</button>
+      </article>
     </div>
   </section>
 
-  <!-- Video Sharing Section -->
-  <section id="videos">
-    <h2>Videos</h2>
-    <div>
-      <p>Upload or watch videos from our community.</p>
-      <button>Upload Video</button>
-    </div>
-  </section>
-
-  <!-- Live Stream Section -->
-  <section id="live-streams">
-    <h2>Live Streams</h2>
-    <p>Go live or join live events from creators worldwide.</p>
-    <button>Start a Live Stream</button>
-  </section>
-
-  <!-- Music Section -->
-  <section id="music">
-    <h2>Music</h2>
-    <p>Discover and share your favorite tunes.</p>
-  </section>
-
-  <!-- Stories Section -->
-  <section id="stories">
-    <h2>Stories</h2>
-    <p>Post short updates for your friends to see.</p>
-    <button>Create a Story</button>
-  </section>
-
-  <!-- Notifications Section -->
   <section id="notifications">
     <h2>Notifications</h2>
-    <p>Stay updated with the latest activity.</p>
+    <ul>
+      <li><strong>@User1</strong> liked your video.</li>
+      <li><strong>@User2</strong> started following you.</li>
+      <li><strong>@User3</strong> commented on your post.</li>
+    </ul>
+  </section>
+
+  <section id="create-post">
+    <h2>Create a Post</h2>
+    <form id="post-form" action="#" method="post">
+      <textarea placeholder="What's on your mind?" rows="4"></textarea>
+      <input type="file" accept="image/*,video/*">
+      <button type="submit">Post</button>
+    </form>
   </section>
 </main>
 
 <footer id="main-footer">
-  <p>Created by <a href="/Spinzone/file/Isaac_Cheurfi">Isaac Cheurfi</a> and collaborators. Respect our work and enjoy the platform!</p>
+  <p>Created by <a href="/Spinzone/file/Isaac_Cheurfi">@Isaac_Cheurfi</a> and other creators. Respect our work and do not copy this program.</p>
   <p>&copy; 2024 Spinzone Corporation. All Rights Reserved.</p>
-  <p>Made with love in Orléans, France.</p>
+  <p>Made in Orléans (France).</p>
 </footer>
+
+<script>
+  // Example animation for notifications
+  const notificationSection = document.querySelector('#notifications ul');
+  notificationSection.addEventListener('mouseenter', () => {
+    notificationSection.style.transform = 'scale(1.02)';
+  });
+  notificationSection.addEventListener('mouseleave', () => {
+    notificationSection.style.transform = 'scale(1)';
+  });
+</script>
 
 </body>
 </html>
