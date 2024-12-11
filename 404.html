@@ -6,6 +6,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>404 - Page Not Found</title>
   <link rel="stylesheet" href="/Spinzone/file/Style.css">
+  <style>
+    .game-over {
+      display: none;
+      color: white;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
   <div class="not-found">
@@ -13,6 +21,11 @@
     <p>Oops! The page you are looking for does not exist.</p>
     <a href="/Spinzone">Back to home</a>
     <canvas id="snakeGame" width="400" height="400"></canvas>
+    <div id="gameOverMessage" class="game-over">
+      <h2>Game Over!</h2>
+      <p>Your score: <span id="finalScore">0</span></p>
+      <button onclick="restartGame()">Restart</button>
+    </div>
   </div>
 
   <script>
@@ -26,6 +39,10 @@
     };
     let direction = 'RIGHT';
     let score = 0;
+    let game;
+
+    const gameOverMessage = document.getElementById('gameOverMessage');
+    const finalScore = document.getElementById('finalScore');
 
     document.addEventListener('keydown', changeDirection);
 
@@ -78,14 +95,27 @@
         snake.some(segment => segment.x === newHead.x && segment.y === newHead.y)
       ) {
         clearInterval(game);
-        alert(`Game Over! Your score: ${score}`);
-        document.location.reload();
+        finalScore.textContent = score;
+        gameOverMessage.style.display = 'block';
+        return;
       }
 
       snake.unshift(newHead);
     }
 
-    const game = setInterval(drawGame, 100);
+    function restartGame() {
+      snake = [{ x: 10 * box, y: 10 * box }];
+      direction = 'RIGHT';
+      score = 0;
+      food = {
+        x: Math.floor(Math.random() * 20) * box,
+        y: Math.floor(Math.random() * 20) * box
+      };
+      gameOverMessage.style.display = 'none';
+      game = setInterval(drawGame, 100);
+    }
+
+    game = setInterval(drawGame, 100);
   </script>
 </body>
 </html>
